@@ -1,7 +1,7 @@
 +++
 title = 'Sobre Mí.'
 date = 2025-10-09T13:27:43+02:00
-draft = true
+draft = false
 +++
 
 # Sobre mí
