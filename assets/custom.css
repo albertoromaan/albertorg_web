@@ -1,28 +1,42 @@
-/* Mejoras visuales para albertorg Web */
+/* ========================================
+   CSS Personalizado para albertorg Web
+   ======================================== */
 
 :root {
-  --bg-gradient-start: #1a1a2e;
-  --bg-gradient-end: #16213e;
-  --accent-color: #0f4c75;
-  --accent-light: #3282b8;
-  --text-primary: #bbe1fa;
-  --text-secondary: #e8f4f8;
-  --card-bg: rgba(15, 76, 117, 0.1);
-  --card-border: rgba(50, 130, 184, 0.3);
+  --accent-primary: #2563eb;
+  --accent-secondary: #3b82f6;
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+  --text-bright: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --border-color: rgba(59, 130, 246, 0.2);
 }
 
-/* Fondo degradado hermoso */
+/* ========================================
+   Fondo y estilos base
+   ======================================== */
+
 body {
-  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 50%, #1e293b 100%);
+  background-attachment: fixed;
+  color: var(--text-bright);
   min-height: 100vh;
-  color: var(--text-primary);
 }
 
-/* Título principal más impactante */
-.main .main-title {
-  font-size: 3.5rem !important;
+/* ========================================
+   Perfil principal (Home)
+   ======================================== */
+
+.profile {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.profile .profile_inner h1 {
+  font-size: 3rem !important;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--text-secondary) 0%, var(--accent-light) 100%);
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,128 +44,184 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Subtítulo más elegante */
-.main p {
-  color: var(--text-primary);
-  font-size: 1.2rem;
+.profile .profile_inner p {
+  color: var(--text-muted);
+  font-size: 1.3rem;
   font-weight: 300;
   letter-spacing: 0.05em;
-  opacity: 0.9;
 }
 
-/* Tarjetas de posts con efecto glass */
+/* ========================================
+   Social icons
+   ======================================== */
+
+.social-icons a {
+  color: var(--text-muted) !important;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.social-icons a:hover {
+  color: var(--accent-secondary) !important;
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* ========================================
+   Tarjetas de posts - CLICKS FUNCIONALES
+   ======================================== */
+
 .post-entry {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Barra superior decorativa */
+.post-entry::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.post-entry:hover::before {
+  transform: scaleX(1);
 }
 
 .post-entry:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(50, 130, 184, 0.2);
-  border-color: var(--accent-light);
-  background: rgba(15, 76, 117, 0.15);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+  border-color: var(--accent-secondary);
+  background: rgba(30, 41, 59, 0.7);
 }
 
-/* Título de posts más llamativo */
+/* Links de posts - DEBEN SER CLICKEABLES */
+.post-entry .entry-title a,
+.post-entry > a {
+  color: var(--text-bright) !important;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.post-entry:hover .entry-title a,
+.post-entry:hover > a {
+  color: var(--accent-secondary) !important;
+}
+
+/* Título del post */
+.post-entry h2,
 .post-entry .entry-title {
-  color: var(--text-secondary) !important;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.post-entry .entry-title:hover {
-  color: var(--accent-light) !important;
+/* Metadata de posts */
+.post-entry .entry-footer,
+.post-entry .entry-meta,
+.post-entry time {
+  color: var(--text-muted);
+  opacity: 0.8;
+  font-size: 0.875rem;
 }
 
-/* Fecha más sutil */
-.post-entry .entry-meta {
-  color: var(--text-primary);
-  opacity: 0.7;
-  font-size: 0.9rem;
-  font-weight: 400;
-}
+/* ========================================
+   Header
+   ======================================== */
 
-/* Links con efecto */
-a {
-  color: var(--accent-light);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-a:hover {
-  color: var(--text-secondary);
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: var(--accent-light);
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
-
-/* Header más limpio */
-.header {
-  background: rgba(26, 26, 46, 0.8);
+header.header {
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.header a {
-  color: var(--text-secondary) !important;
+header.header a {
+  color: var(--text-bright) !important;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-/* Avatar/logo con borde bonito */
-.avatar {
-  border: 3px solid var(--accent-light);
-  box-shadow: 0 8px 16px rgba(50, 130, 184, 0.3);
+header.header a:hover {
+  color: var(--accent-secondary) !important;
+}
+
+/* ========================================
+   Links generales (solo para texto)
+   ======================================== */
+
+article a,
+.post-content a,
+p a {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+  text-decoration-color: rgba(59, 130, 246, 0.3);
   transition: all 0.3s ease;
 }
 
-.avatar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(50, 130, 184, 0.5);
+article a:hover,
+.post-content a:hover,
+p a:hover {
+  color: var(--accent-primary);
+  text-decoration-color: var(--accent-primary);
 }
 
-/* Botón de tema con estilo */
+/* ========================================
+   Botón de tema
+   ======================================== */
+
 #theme-toggle {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
+  transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
 #theme-toggle:hover {
-  background: var(--accent-color);
-  border-color: var(--accent-light);
   transform: rotate(180deg);
 }
 
-/* Animación de entrada suave */
-.main, .post-entry {
-  animation: fadeInUp 0.6s ease-out;
+/* ========================================
+   Animaciones de entrada
+   ======================================== */
+
+.main {
+  animation: fadeIn 0.6s ease-out;
 }
 
-@keyframes fadeInUp {
+.post-entry {
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.post-entry:nth-child(1) { animation-delay: 0.05s; }
+.post-entry:nth-child(2) { animation-delay: 0.1s; }
+.post-entry:nth-child(3) { animation-delay: 0.15s; }
+.post-entry:nth-child(4) { animation-delay: 0.2s; }
+.post-entry:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -159,20 +229,80 @@ a:hover::after {
   }
 }
 
-/* Scrollbar personalizado */
+/* ========================================
+   Scrollbar personalizado
+   ======================================== */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-gradient-start);
+  background: var(--bg-darker);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
+  background: var(--accent-primary);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-light);
+  background: var(--accent-secondary);
+}
+
+/* ========================================
+   Página individual de post
+   ======================================== */
+
+.post-single {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.post-single h1,
+.post-single h2,
+.post-single h3 {
+  color: var(--text-bright);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-single h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.post-single p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+  .profile .profile_inner h1 {
+    font-size: 2rem !important;
+  }
+  
+  .profile .profile_inner p {
+    font-size: 1.1rem;
+  }
+  
+  .post-entry {
+    padding: 1rem;
+  }
+  
+  .post-entry h2,
+  .post-entry .entry-title {
+    font-size: 1.2rem;
+  }
 }
