@@ -1,4 +1,4 @@
-baseURL = "https://albertoromaan.github.io/albertorg_web/"
+baseURL = "https://albertorg-web.onrender.com/"
 languageCode = "es"
 title = "albertorg Web"
 theme = "paper"
