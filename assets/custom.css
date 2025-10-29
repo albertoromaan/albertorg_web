@@ -1,24 +1,21 @@
 /* ========================================
-   albertorg Blog - Diseño Minimalista Negro
+   albertorg Blog - Ultra Clean Design
+   Todo Perfectamente Centrado
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap');
 
 :root {
-  --bg-black: #000000;
-  --bg-card: #0a0a0a;
-  --bg-hover: #141414;
-  --accent-primary: #ffffff;
-  --accent-secondary: #a3a3a3;
-  --text-primary: #ffffff;
-  --text-secondary: #a3a3a3;
-  --text-muted: #737373;
-  --border-color: #1f1f1f;
-  --border-hover: #404040;
+  --bg: #000000;
+  --text: #ffffff;
+  --text-dim: #888888;
+  --text-dimmer: #555555;
+  --border: #222222;
+  --hover: #ffffff;
 }
 
 /* ========================================
-   Reset y Base
+   Reset Total
    ======================================== */
 
 * {
@@ -27,42 +24,37 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg-black);
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ========================================
-   Contenedor Principal Centrado
-   ======================================== */
-
-.main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-}
-
-/* ========================================
-   Header - Minimalista y Centrado
+   Header - Limpio y Fijo
    ======================================== */
 
 header.header {
-  background: var(--bg-black);
-  border-bottom: 1px solid var(--border-color);
-  padding: 2rem 0;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 1.5rem 0;
 }
 
 header .header-inner {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -70,92 +62,119 @@ header .header-inner {
   align-items: center;
 }
 
+/* Logo/Nombre del sitio */
+header .logo,
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 header a {
-  color: var(--text-primary) !important;
+  color: var(--text-dim) !important;
   text-decoration: none;
+  font-size: 0.875rem;
   font-weight: 500;
-  font-size: 0.9rem;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
 header a:hover {
-  color: var(--text-secondary) !important;
-}
-
-/* Logo/Título del sitio */
-header .logo a {
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
+  color: var(--text) !important;
 }
 
 /* ========================================
-   Perfil/Hero - Centrado y Elegante
+   Contenedor Principal
+   ======================================== */
+
+.main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+}
+
+/* ========================================
+   Hero/Perfil - Perfectamente Centrado
    ======================================== */
 
 .profile {
   text-align: center;
-  padding: 5rem 0;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 4rem;
+  padding: 6rem 0 8rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.profile .profile_inner h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem !important;
-  font-weight: 900;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
+/* Avatar centrado */
+.profile .avatar,
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  display: block;
+  border: 2px solid var(--border);
+}
+
+/* Nombre */
+.profile .profile_inner h1,
+.profile h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem !important;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-.profile .profile_inner p {
-  color: var(--text-secondary);
-  font-size: 1.2rem;
+/* Bio */
+.profile .profile_inner p,
+.profile p {
+  color: var(--text-dim);
+  font-size: 1.125rem;
   font-weight: 400;
-  letter-spacing: 0.02em;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.8;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
 }
 
 /* ========================================
-   Social Icons - Minimalistas
+   Social Icons - Centrados
    ======================================== */
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .social-icons a {
-  color: var(--text-secondary) !important;
+  color: var(--text-dim) !important;
+  font-size: 1.25rem;
   transition: all 0.3s ease;
-  font-size: 1.2rem;
-  opacity: 0.7;
+  padding: 0.5rem;
 }
 
 .social-icons a:hover {
-  color: var(--text-primary) !important;
-  opacity: 1;
+  color: var(--text) !important;
   transform: translateY(-2px);
 }
 
 /* ========================================
-   Lista de Posts - Diseño Blog Clean
+   Posts - Lista Vertical Centrada
    ======================================== */
 
+.post-list,
+.posts {
+  margin-top: 6rem;
+}
+
 .post-entry {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-color);
-  padding: 3rem 0;
-  margin: 0;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
   transition: all 0.3s ease;
   display: block;
 }
@@ -164,34 +183,35 @@ header .logo a {
   padding-top: 0;
 }
 
-.post-entry:hover {
-  border-bottom-color: var(--border-hover);
+.post-entry:last-of-type {
+  border-bottom: none;
 }
 
-/* Fecha del post */
+/* Fecha */
 .post-entry .entry-footer,
 .post-entry .entry-meta,
 .post-entry time {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
   display: block;
+  color: var(--text-dimmer);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
 /* Título del post */
 .post-entry h2,
 .post-entry .entry-title {
   margin: 0 0 1rem 0;
+  padding: 0;
 }
 
 .post-entry .entry-title a,
-.post-entry > a {
-  color: var(--text-primary) !important;
+.post-entry h2 a {
+  color: var(--text) !important;
   text-decoration: none;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
   font-weight: 800;
   line-height: 1.3;
@@ -201,147 +221,182 @@ header .logo a {
 }
 
 .post-entry:hover .entry-title a,
-.post-entry:hover > a {
-  color: var(--text-secondary) !important;
+.post-entry:hover h2 a {
+  color: var(--text-dim) !important;
 }
 
-/* Resumen del post */
+/* Resumen/Extracto */
 .post-entry .entry-content,
 .post-entry .entry-summary,
-.post-entry p {
-  color: var(--text-secondary);
-  font-size: 1.05rem;
+.post-entry > p {
+  color: var(--text-dim);
+  font-size: 1.0625rem;
   line-height: 1.7;
   margin-top: 1rem;
-}
-
-/* Leer más */
-.post-entry .read-more {
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-top: 1rem;
-  display: inline-block;
-  transition: opacity 0.3s ease;
-}
-
-.post-entry:hover .read-more {
-  opacity: 0.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ========================================
-   Página Individual de Post
+   Página Individual del Post
    ======================================== */
 
-.post-single {
-  max-width: 700px;
+.post-single,
+article.post {
+  max-width: 650px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  background: transparent;
-  border: none;
+  padding-top: 8rem;
 }
 
-/* Metadata del post */
+/* Meta info del post */
 .post-single .post-meta,
 .post-single .entry-meta {
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.85rem;
+  color: var(--text-dimmer);
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-color);
 }
 
-/* Título del post individual */
+/* Título principal */
 .post-single h1,
-.post-single .post-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 900;
+.post-single .post-title,
+.post-single .entry-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -0.03em;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 3rem;
   text-align: center;
 }
 
-/* Subtítulos dentro del post */
-.post-single h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+/* Contenido del post */
+.post-single .post-content,
+.post-single article,
+.post-content {
+  color: var(--text-dim);
+  font-size: 1.0625rem;
+  line-height: 1.8;
 }
 
-.post-single h3 {
-  font-size: 1.5rem;
+/* Títulos dentro del contenido */
+.post-single h2,
+.post-content h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.875rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-top: 2rem;
+  color: var(--text);
+  margin-top: 3rem;
   margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.post-single h3,
+.post-content h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Párrafos */
 .post-single p,
 .post-content p {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
   margin-bottom: 1.5rem;
+  color: var(--text-dim);
 }
 
 /* Listas */
 .post-single ul,
-.post-single ol {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  margin-left: 2rem;
+.post-single ol,
+.post-content ul,
+.post-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  color: var(--text-dim);
 }
 
-.post-single li {
-  margin-bottom: 0.5rem;
+.post-single li,
+.post-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
 }
 
-/* Imágenes dentro del post */
+/* Imágenes */
 .post-single img,
 .post-content img {
   max-width: 100%;
   height: auto;
-  margin: 2rem 0;
-  border-radius: 4px;
+  margin: 3rem auto;
   display: block;
+  border-radius: 8px;
+}
+
+/* Blockquotes */
+.post-single blockquote,
+.post-content blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* Código */
+.post-single code,
+.post-content code {
+  background: #0a0a0a;
+  color: var(--text-dim);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+}
+
+.post-single pre,
+.post-content pre {
+  background: #0a0a0a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.post-single pre code,
+.post-content pre code {
+  background: none;
+  padding: 0;
 }
 
 /* ========================================
    Links
    ======================================== */
 
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
 .post-single a,
 .post-content a,
-article a,
-p a {
-  color: var(--text-primary);
-  text-decoration: none;
-  border-bottom: 1px solid var(--text-secondary);
-  transition: all 0.3s ease;
+article a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-dimmer);
+  text-underline-offset: 3px;
 }
 
 .post-single a:hover,
 .post-content a:hover,
-article a:hover,
-p a:hover {
-  border-bottom-color: var(--text-primary);
+article a:hover {
+  text-decoration-color: var(--text);
 }
 
 /* ========================================
@@ -349,32 +404,39 @@ p a:hover {
    ======================================== */
 
 footer {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 3rem 2rem;
-  border-top: 1px solid var(--border-color);
+  padding: 4rem 2rem 3rem;
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 6rem;
+}
+
+footer p {
+  color: var(--text-dimmer);
+  font-size: 0.875rem;
 }
 
 /* ========================================
-   Botón de tema
+   Botones y Controles
    ======================================== */
 
-#theme-toggle {
+#theme-toggle,
+button {
   background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  padding: 0.5rem;
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.875rem;
 }
 
-#theme-toggle:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-card);
+#theme-toggle:hover,
+button:hover {
+  border-color: var(--text-dimmer);
+  color: var(--text);
 }
 
 /* ========================================
@@ -382,36 +444,39 @@ footer {
    ======================================== */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-black);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 5px;
+  background: var(--border);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
+  background: var(--text-dimmer);
 }
 
 /* ========================================
-   Animaciones Sutiles
+   Animación de Entrada
    ======================================== */
 
-.main {
-  animation: fadeIn 0.6s ease-out;
+.main,
+.post-single {
+  animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -420,61 +485,92 @@ footer {
    ======================================== */
 
 @media (max-width: 768px) {
-  .main {
-    padding: 2rem 1.5rem;
-  }
-  
   header .header-inner {
     padding: 0 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .main,
+  .post-single {
+    padding: 6rem 1.5rem 3rem;
   }
   
   .profile {
-    padding: 3rem 0;
-    margin-bottom: 2rem;
+    padding: 4rem 0 6rem;
   }
   
-  .profile .profile_inner h1 {
-    font-size: 2.5rem !important;
+  .profile .profile_inner h1,
+  .profile h1 {
+    font-size: 2rem !important;
   }
   
-  .profile .profile_inner p {
-    font-size: 1.05rem;
+  .profile .profile_inner p,
+  .profile p {
+    font-size: 1rem;
   }
   
   .post-entry {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
   
-  .post-entry .entry-title a {
-    font-size: 1.6rem;
+  .post-entry .entry-title a,
+  .post-entry h2 a {
+    font-size: 1.5rem;
   }
   
   .post-single h1,
   .post-single .post-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
-  .post-single h2 {
-    font-size: 1.7rem;
+  .post-single h2,
+  .post-content h2 {
+    font-size: 1.5rem;
   }
   
-  .post-single {
-    padding: 2rem 1.5rem;
+  .social-icons {
+    gap: 0.75rem;
   }
 }
 
 /* ========================================
-   Utilidades
+   Fixes para el tema Paper
    ======================================== */
 
-.text-center {
-  text-align: center;
+/* Forzar que todo esté dentro del contenedor */
+body > * {
+  max-width: 100%;
 }
 
-.mt-4 {
-  margin-top: 2rem;
+/* Eliminar cualquier float o posicionamiento extraño */
+.main > *,
+.profile > *,
+.post-entry > * {
+  float: none !important;
+  position: static !important;
 }
 
-.mb-4 {
-  margin-bottom: 2rem;
+/* Centrar todo por defecto */
+.main,
+.profile,
+.post-entry,
+.post-single {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ocultar elementos que puedan estar mal posicionados */
+.sidebar,
+aside {
+  display: none;
+}
+
+/* Limpiar cualquier padding/margin extraño del tema */
+body > header,
+body > main,
+body > footer {
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
 }
