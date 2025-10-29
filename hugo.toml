@@ -37,7 +37,7 @@ theme = "paper"
   graphCommentId = "YOUR_GRAPH_COMMENT_ID"
   favicon = "favicon.ico"
   appleTouchIcon = "apple-touch-icon.png"
-  direction = "rtl"
+  direction = "ltr"
   
   # Secciones principales (importante para que aparezcan los posts)
   mainSections = ["posts"] 

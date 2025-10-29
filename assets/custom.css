@@ -1,3 +1,23 @@
+Edita assets/custom.css y añade esto al principio del archivo:
+css/* FORZAR override del tema Paper */
+body, html {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+body > * {
+  direction: ltr !important;
+}
+
+.main,
+.profile,
+.post-entry,
+header,
+footer {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
 /* CSS Simple - Blog Centrado */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
