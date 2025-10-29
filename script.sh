@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Subiendo contenido del repositorio principal (pagina_est-tica)"
+echo "Subiendo contenido del repositorio principal"
 cd ~/github/alberto_web/albertorg/
 echo "Añadiendo nuevos ficheros..."
 git add .
@@ -11,7 +11,7 @@ git commit -m "$COMMIT1" || echo "No hay cambios para commitear."
 echo "Subiendo a GitHub..."
 git push origin master
 
-echo "Subiendo contenido de la carpeta 'public' (pagina_estatica_public)"
+echo "Subiendo contenido de la carpeta 'public'"
 cd public/
 echo "Añadiendo nuevos ficheros..."
 git add .
