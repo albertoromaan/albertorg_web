@@ -1,7 +1,7 @@
 ---
 title: "Experiencia"
 date: 2025-10-09T14:11:41+02:00
-draft: true
+draft: false
 
 categories: []
 tags: []
