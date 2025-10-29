@@ -1,5 +1,1 @@
-{ $customCSS := resources.Get "custom.css" }}
-{{ if $customCSS }}
-  {{ $customCSS = $customCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
-{{ end }}
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}">
